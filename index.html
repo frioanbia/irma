@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Untuk Irma ❤️</title>
+
+    <style>
+      body {
+        margin: 0;
+        overflow: hidden;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: "Segoe UI", sans-serif;
+        background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+        color: white;
+      }
+
+      /* kartu ucapan */
+      .card {
+        position: relative;
+        z-index: 2;
+        background: rgba(255, 255, 255, 0.15);
+        padding: 40px;
+        border-radius: 25px;
+        backdrop-filter: blur(12px);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        max-width: 520px;
+        text-align: center;
+      }
+
+      h1 {
+        margin-bottom: 15px;
+        font-size: 32px;
+      }
+      p {
+        font-size: 18px;
+        line-height: 1.6;
+      }
+
+      /* tombol */
+      button {
+        margin-top: 20px;
+        padding: 12px 22px;
+        border: none;
+        border-radius: 30px;
+        font-size: 16px;
+        cursor: pointer;
+        background: white;
+        color: #ff4b7d;
+        font-weight: bold;
+        transition: 0.3s;
+      }
+      button:hover {
+        transform: scale(1.1);
+      }
+
+      /* pesan rahasia */
+      #secret {
+        margin-top: 20px;
+        display: none;
+        font-size: 20px;
+        font-weight: bold;
+        animation: fade 1s ease forwards;
+      }
+
+      @keyframes fade {
+        from {
+          opacity: 0;
+          transform: translateY(10px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      /* hati jatuh */
+      .heart {
+        position: fixed;
+        top: -10px;
+        color: #ff2d55;
+        animation: fall linear forwards;
+      }
+      @keyframes fall {
+        to {
+          transform: translateY(110vh);
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- musik -->
+    <audio autoplay loop>
+      <source src="https://cdn.pixabay.com/audio/2022/03/15/audio_c8c8a73467.mp3" type="audio/mpeg" />
+    </audio>
+
+    <div class="card">
+      <h1>Selamat Ulang Tahun Irma ❤️</h1>
+
+      <p>
+        Hari ini adalah hari spesial karena dunia pernah menghadirkan seseorang seindah kamu ke hidupku. Terima kasih sudah menjadi alasan senyumku, penyemangat hariku, dan tempat pulang ternyaman bagi hatiku. Semoga setiap langkahmu selalu
+        dipenuhi kebahagiaan dan cinta.
+      </p>
+
+      <button onclick="showSecret()">Klik untuk pesan rahasia 🔐</button>
+
+      <div id="secret">sayang kamu selamanya 💖</div>
+    </div>
+
+    <script>
+      function showSecret() {
+        document.getElementById("secret").style.display = "block";
+      }
+
+      /* generator hati jatuh */
+      function createHeart() {
+        const heart = document.createElement("div");
+        heart.classList.add("heart");
+        heart.innerHTML = "❤";
+        heart.style.left = Math.random() * 100 + "vw";
+        heart.style.fontSize = 15 + Math.random() * 25 + "px";
+        heart.style.animationDuration = 3 + Math.random() * 5 + "s";
+        document.body.appendChild(heart);
+
+        setTimeout(() => {
+          heart.remove();
+        }, 8000);
+      }
+      setInterval(createHeart, 300);
+    </script>
+  </body>
+</html>
